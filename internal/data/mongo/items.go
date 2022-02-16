@@ -116,14 +116,7 @@ func (i *Items) FilterByAmountLt(amount uint64) data.Items {
 }
 
 func (i *Items) FilterByTitle(title string) data.Items {
-	_, ok := i.filters["title"]
-	if ok {
-		i.filters["title"] = title
-
-		return i
-	}
-
-	i.filters = bson.M{"title": title}
+	i.filters["title"] = title
 
 	return i
 }
